@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>KO: example1</title>
+        <link rel="stylesheet" href="../assets/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-8 offset-1">
+                    <div class="py-5 text-center">
+                        <h2>Checkout form</h2>
+                    </div>
+
+                    <form class="needs-validation" novalidate="">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName"><span>First name: </span> <span data-bind="text: firstName"></span></label>
+                                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="" data-bind="value: firstName">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName"><span>Last name:</span> <span data-bind="text: lastName"></span></label>
+                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required="" data-bind="value: lastName">
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script src="../lib/knockout-3.4.2.js"></script>
+    <script src="script.js"></script>
+</html>
