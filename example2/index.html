@@ -1,16 +1,163 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>KO: template</title>
-    <link rel="stylesheet" href="../assets/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>KO: template</title>
+        <link rel="stylesheet" href="../assets/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+        <script src="../lib/knockout-3.4.2.js"></script>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-7">
+                    <div class="py-4 text-center">
+                        <h2>Create New User</h2>
+                    </div>
+
+                    <form class="needs-validation" novalidate="" data-bind="submit: save">
+                        <div class="row">
+                            <div class="col-md-3 mb-2">
+                                <label for="firstName"><span>First name: </span></label>
+                            </div>
+                            <div class="col-md-9 mb-2">
+                                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="" data-bind="value: firstName">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3 mb-2">
+                                <label for="lastName"><span>Last name: </span></label>
+                            </div>
+                            <div class="col-md-9 mb-2">
+                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required="" data-bind="value: lastName">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 mb-2">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <span>Возраст</span>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control" id="age" placeholder="" value="" required="" data-bind="value: age">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <span>Пол</span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="custom-select d-block w-100" id="sex" required="" data-bind="
+                                                    options: sexOptions,
+                                                    optionsaption:  'Not Select',
+                                                    value: sex,
+                                                    valueAllowUnset: true
+                                                ">
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="access-administration" data-bind="checked: isAdmin">
+                                    <label class="custom-control-label" for="access-administration">Is Admin</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-block my-3">
+                            <div class="custom-control custom-radio" data-bind="visible: isAdmin">
+                                <input id="articlesAdministrator" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="" value="Articles administrator" data-bind="checked: adminName">
+                                <label class="custom-control-label" for="articlesAdministrator">Articles administrator</label>
+                            </div>
+                            <div class="custom-control custom-radio" data-bind="visible: isAdmin">
+                                <input id="sectionAdministrator" name="paymentMethod" type="radio" class="custom-control-input" required="" value="Section administrator" data-bind="checked: adminName">
+                                <label class="custom-control-label" for="sectionAdministrator">Section administrator</label>
+                            </div>
+                            <div class="custom-control custom-radio" data-bind="visible: isAdmin">
+                                <input id="superAdministrator" name="paymentMethod" type="radio" class="custom-control-input" required="" value="Super administrator" data-bind="checked: adminName">
+                                <label class="custom-control-label" for="superAdministrator">Super administrator</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 mb-2">
+                                <button class="btn btn-success" type="submit" data-bind="click: save">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="py-4 text-center">
+                        <h2>New User:</h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5 mb-2">
+                            <span>Full Name:</span>
+                        </div>
+                        <div class="col-md-7 mb-2">
+                            <span data-bind="text: fullName"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5 mb-2">
+                            <span>Age:</span>
+                        </div>
+                        <div class="col-md-7 mb-2">
+                            <span data-bind="text: age"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5 mb-2">
+                            <span>Admin:</span>
+                        </div>
+                        <div class="col-md-7 mb-2">
+                            <span data-bind="text: adminName"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5 mb-2">
+                            <span>Sex:</span>
+                        </div>
+                        <div class="col-md-7 mb-2">
+                            <span data-bind="text: sex"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5 mb-2">
+                            <span></span>
+                        </div>
+                        <div class="col-md-7 mb-2">
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12  mb-2">
+                            <button class="btn btn-danger" type="reset" data-bind="visible: notEmpty, click: reset">Clear</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
     <script src="../lib/knockout-3.4.2.js"></script>
     <script src="script.js"></script>
-</head>
-<body>
-
-</body>
 </html>
