@@ -1,2 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/*
+assets/bootstrap-4.0.0/_data/*
+assets/bootstrap-4.0.0/_includes/*
+assets/bootstrap-4.0.0/_layouts/*
